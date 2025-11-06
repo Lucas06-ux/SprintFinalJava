@@ -13,15 +13,7 @@ public class ErroResponseDto {
         return erro;
     }
 
-    public void setErro(String erro) {
-        this.erro = erro;
-    }
-
     public String getDetalhes() {
         return detalhes;
-    }
-
-    public void setDetalhes(String detalhes) {
-        this.detalhes = detalhes;
     }
 }

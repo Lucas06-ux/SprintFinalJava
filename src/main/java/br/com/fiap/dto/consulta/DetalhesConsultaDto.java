@@ -1,8 +1,8 @@
-package br.com.fiap.model;
+package br.com.fiap.dto.consulta;
 
 import java.time.LocalDate;
 
-public class Consulta {
+public class DetalhesConsultaDto {
     private int codigo;
     private LocalDate dataInicio;
     private LocalDate dataFim;
@@ -11,21 +11,6 @@ public class Consulta {
     private String statusConsulta;
     private int codigoPaciente;
     private int codigoMedico;
-
-    public Consulta() {
-    }
-
-    public Consulta(int codigo, LocalDate dataInicio, LocalDate dataFim, String link,
-                    String observacoes, String statusConsulta, int codigoPaciente, int codigoMedico) {
-        this.codigo = codigo;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
-        this.link = link;
-        this.observacoes = observacoes;
-        this.statusConsulta = statusConsulta;
-        this.codigoPaciente = codigoPaciente;
-        this.codigoMedico = codigoMedico;
-    }
 
     public int getCodigo() {
         return codigo;

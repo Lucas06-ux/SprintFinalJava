@@ -45,6 +45,14 @@ public class MedicoResource {
         return Response.ok(mapper.map(medico, DetalhesMedicoDto.class)).build();
     }
 
+    @GET
+    @Path("pesquisa")
+    public List<DetalhesMedicoDto> buscar (@QueryParam("salario") double salario) throws SQLException{
+        return medicoDAO.buscarPorSalario(salario).stream().map(
+                m-> mapper.map(m, DetalhesMedicoDto.class)
+        ).toList();
+    }
+
     @DELETE
     @Path("/{id}")
     public Response remover(@PathParam("id") int codigo) throws EntidadeNaoEncontrada, SQLException {

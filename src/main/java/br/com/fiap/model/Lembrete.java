@@ -6,11 +6,16 @@ public class Lembrete {
     private int codigo;
     private String mensagem;
     private LocalDate dataEnvio;
+    private int codigoParente;
 
-    public Lembrete(int codigo, String mensagem, LocalDate dataEnvio) {
+    public Lembrete() {
+    }
+
+    public Lembrete(int codigo, String mensagem, LocalDate dataEnvio, int codigoParente) {
         this.codigo = codigo;
         this.mensagem = mensagem;
         this.dataEnvio = dataEnvio;
+        this.codigoParente = codigoParente;
     }
 
     public int getCodigo() {
@@ -35,5 +40,13 @@ public class Lembrete {
 
     public void setDataEnvio(LocalDate dataEnvio) {
         this.dataEnvio = dataEnvio;
+    }
+
+    public int getCodigoParente() {
+        return codigoParente;
+    }
+
+    public void setCodigoParente(int codigoParente) {
+        this.codigoParente = codigoParente;
     }
 }

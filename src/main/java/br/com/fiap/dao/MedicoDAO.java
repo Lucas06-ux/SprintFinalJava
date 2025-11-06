@@ -4,6 +4,7 @@ import br.com.fiap.exception.EntidadeNaoEncontrada;
 import br.com.fiap.model.Medico;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import oracle.jdbc.proxy.annotation.Pre;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -58,6 +59,20 @@ public class MedicoDAO {
 
         }
 
+    }
+
+    public List<Medico> buscarPorSalario(double salario) throws SQLException{
+        try(Connection conexao = dataSource.getConnection()){
+            PreparedStatement stmt = conexao.prepareStatement("Select * from t_tdspw_medico where vl_salario = ?");
+            stmt.setDouble(1, salario);
+            ResultSet rs = stmt.executeQuery();
+            List<Medico> lista = new ArrayList<>();
+            while(rs.next()){
+                Medico medico = parseMedico(rs);
+                lista.add(medico);
+            }
+            return lista;
+        }
     }
 
     public void atualizar(Medico medico) throws SQLException, EntidadeNaoEncontrada{

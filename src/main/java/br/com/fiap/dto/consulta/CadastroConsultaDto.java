@@ -1,39 +1,26 @@
-package br.com.fiap.model;
+package br.com.fiap.dto.consulta;
+
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
-public class Consulta {
-    private int codigo;
+public class CadastroConsultaDto {
     private LocalDate dataInicio;
     private LocalDate dataFim;
+
+    @Size(max = 30)
     private String link;
+
+    @Size(max = 80)
     private String observacoes;
+
+    @Size(max = 40)
     private String statusConsulta;
+
+
     private int codigoPaciente;
+
     private int codigoMedico;
-
-    public Consulta() {
-    }
-
-    public Consulta(int codigo, LocalDate dataInicio, LocalDate dataFim, String link,
-                    String observacoes, String statusConsulta, int codigoPaciente, int codigoMedico) {
-        this.codigo = codigo;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
-        this.link = link;
-        this.observacoes = observacoes;
-        this.statusConsulta = statusConsulta;
-        this.codigoPaciente = codigoPaciente;
-        this.codigoMedico = codigoMedico;
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
 
     public LocalDate getDataInicio() {
         return dataInicio;

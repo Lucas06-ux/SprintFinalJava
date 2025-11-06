@@ -1,30 +1,21 @@
-package br.com.fiap.model;
+package br.com.fiap.dto.parente;
 
-public class Parente {
-    private int codigo;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+public class CadastroParenteDto {
+
+    @NotBlank(message = "É necessário informar um nome")
+    @Size(max = 60)
     private String nome;
+
+    @Size(max = 30)
     private String dsParentesco;
+
+    @Size(max = 11)
     private String nmrTelefone;
+
     private int codigoPaciente;
-
-    public Parente() {
-    }
-
-    public Parente(int codigo, String nome, String dsParentesco, String nmrTelefone, int codigoPaciente) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.dsParentesco = dsParentesco;
-        this.nmrTelefone = nmrTelefone;
-        this.codigoPaciente = codigoPaciente;
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
 
     public String getNome() {
         return nome;
